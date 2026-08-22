@@ -49,13 +49,16 @@ print(Number.FormatCompact(1500000)); -- 1.5M
 print(Number.FormatRoman(2026)); -- MMXXVI
 print(String.FormatCamelCase("hello world")); -- helloWorld
 print(String.Trim("   Hello World   ")); -- Hello World
+print(Table.Contains("hello world", "lo wo)) -- true
 ```
 
-# Number
+# API Reference
 
-The `Number` module provides formatting, validation, conversion, percentage, and randomization utilities.
+## Number
 
-## Formatting
+The `Number` module provides formatting, validation, percentage, and randomization utilities.
+
+### Formatting
 
 | Method                               | Parameters                             | Returns  | Description                                                                        |
 | ------------------------------------ | -------------------------------------- | -------- | ---------------------------------------------------------------------------------- |
@@ -68,17 +71,7 @@ The `Number` module provides formatting, validation, conversion, percentage, and
 | `FormatOrdinal(value)`               | `value: number`                        | `string` | Converts a number into an ordinal such as `1st`, `2nd`, or `3rd`.                  |
 | `FormatRoman(value)`                 | `value: number`                        | `string` | Converts an integer from `1` through `3999` into Roman numerals.                   |
 
-Example:
-
-```lua
-print(ValuePlus.Number.FormatTime(3661)); -- 01:01:01
-print(ValuePlus.Number.FormatCompact(1250000)); -- 1.3M
-print(ValuePlus.Number.FormatCurrency(49.99, "$")); -- $49.99
-print(ValuePlus.Number.FormatOrdinal(22)); -- 22nd
-print(ValuePlus.Number.FormatRoman(2026)); -- MMXXVI
-```
-
-## Validation
+### Validation
 
 | Method             | Parameters      | Returns   | Description                                           |
 | ------------------ | --------------- | --------- | ----------------------------------------------------- |
@@ -87,21 +80,14 @@ print(ValuePlus.Number.FormatRoman(2026)); -- MMXXVI
 | `IsOdd(value)`     | `value: number` | `boolean` | Determines whether a number is odd.                   |
 | `GetSign(value)`   | `value: number` | `number`  | Returns `-1`, `0`, or `1` based on the number's sign. |
 
-## Percentage
+### Percentage
 
 | Method                          | Parameters                         | Returns  | Description                                             |
 | ------------------------------- | ---------------------------------- | -------- | ------------------------------------------------------- |
 | `GetPercentage(value, max)`     | `value: number`<br>`max: number`   | `number` | Calculates what percentage `value` represents of `max`. |
 | `GetPercentageOf(percent, max)` | `percent: number`<br>`max: number` | `number` | Calculates a value from a percentage and maximum value. |
 
-Example:
-
-```lua
-print(ValuePlus.Number.GetPercentage(25, 100)); -- 25
-print(ValuePlus.Number.GetPercentageOf(25, 200)); -- 50
-```
-
-## Randomization
+### Randomization
 
 | Method                  | Parameters                     | Returns   | Description                                                                                   |
 | ----------------------- | ------------------------------ | --------- | --------------------------------------------------------------------------------------------- |
@@ -109,11 +95,11 @@ print(ValuePlus.Number.GetPercentageOf(25, 200)); -- 50
 | `RandomChance(percent)` | `percent: number`              | `boolean` | Returns whether a random percentage check succeeds.                                           |
 | `RandomSign()`          | None                           | `number`  | Returns either `-1` or `1` randomly.                                                          |
 
-# String
+## String
 
-The `String` module provides common string formatting, validation, searching, and trimming utilities.
+The `String` module provides formatting, validation, searching, and trimming utilities.
 
-## Formatting
+### Formatting
 
 | Method                     | Parameters      | Returns  | Description                                  |
 | -------------------------- | --------------- | -------- | -------------------------------------------- |
@@ -122,16 +108,7 @@ The `String` module provides common string formatting, validation, searching, an
 | `FormatSnakeCase(value)`   | `value: string` | `string` | Converts a string into snake_case.           |
 | `FormatKebabCase(value)`   | `value: string` | `string` | Converts a string into kebab-case.           |
 
-Example:
-
-```lua
-print(ValuePlus.String.FormatCapitalized("hello")); -- Hello
-print(ValuePlus.String.FormatCamelCase("hello world")); -- helloWorld
-print(ValuePlus.String.FormatSnakeCase("Hello World")); -- hello_world
-print(ValuePlus.String.FormatKebabCase("Hello World")); -- hello-world
-```
-
-## Validation
+### Validation
 
 | Method             | Parameters      | Returns   | Description                                               |
 | ------------------ | --------------- | --------- | --------------------------------------------------------- |
@@ -141,25 +118,15 @@ print(ValuePlus.String.FormatKebabCase("Hello World")); -- hello-world
 | `IsInteger(value)` | `value: string` | `boolean` | Determines whether a string represents an integer.        |
 | `IsDecimal(value)` | `value: string` | `boolean` | Determines whether a string represents a decimal number.  |
 
-## Searching
+### Searching
 
 | Method                      | Parameters                          | Returns   | Description                                                      |
 | --------------------------- | ----------------------------------- | --------- | ---------------------------------------------------------------- |
 | `StartsWith(value, prefix)` | `value: string`<br>`prefix: string` | `boolean` | Determines whether a string begins with a specified prefix.      |
-| `EndsWith(value, suffix)`   | `value: string`<br>`suffix: string` | `boolean` | Determines whether a string ends with a specified suffix.        |
+| `EndsWith(value, suffix)`   | `value: string`<br>`suffix: string` | `boolean` | Determines whether a string ends with the specified suffix.      |
 | `Contains(value, search)`   | `value: string`<br>`search: string` | `boolean` | Determines whether a string contains the specified search value. |
 
-Example:
-
-```lua
-const String = ValuePlus.String;
-
-print(String.StartsWith("Hello World", "Hello")); -- true
-print(String.EndsWith("Hello World", "World")); -- true
-print(String.Contains("Hello World", "lo Wo")); -- true
-```
-
-## Trimming
+### Trimming
 
 | Method             | Parameters      | Returns  | Description                              |
 | ------------------ | --------------- | -------- | ---------------------------------------- |
@@ -167,11 +134,11 @@ print(String.Contains("Hello World", "lo Wo")); -- true
 | `TrimStart(value)` | `value: string` | `string` | Removes leading whitespace.              |
 | `TrimEnd(value)`   | `value: string` | `string` | Removes trailing whitespace.             |
 
-# Table
+## Table
 
 The `Table` module provides utilities for copying, merging, comparing, searching, inspecting, and manipulating tables.
 
-## Copying
+### Copying
 
 | Method             | Parameters   | Returns | Description                                        |
 | ------------------ | ------------ | ------- | -------------------------------------------------- |
@@ -179,62 +146,20 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 | `ShallowCopy(tbl)` | `tbl: table` | `table` | Copies the top-level entries of a table.           |
 | `DeepFreeze(tbl)`  | `tbl: table` | `table` | Recursively freezes a table and all nested tables. |
 
-Example:
-
-```lua
-const copy = ValuePlus.Table.DeepCopy(original);
-const shallowCopy = ValuePlus.Table.ShallowCopy(original);
-
-ValuePlus.Table.DeepFreeze(configuration);
-```
-
-## Merging
+### Merging
 
 | Method                        | Parameters                        | Returns | Description                                                                            |
 | ----------------------------- | --------------------------------- | ------- | -------------------------------------------------------------------------------------- |
 | `DeepMerge(first, second)`    | `first: table`<br>`second: table` | `table` | Recursively merges the second table into the first table.                              |
 | `ShallowMerge(first, second)` | `first: table`<br>`second: table` | `table` | Creates a copy of the first table and overwrites matching keys using the second table. |
 
-Example:
-
-```lua
-const merged = ValuePlus.Table.ShallowMerge({
-	Health = 100;
-	Speed = 16;
-}, {
-	Speed = 20;
-	Damage = 10;
-});
-```
-
-The resulting table is:
-
-```lua
-{
-	Health = 100;
-	Speed = 20;
-	Damage = 10;
-}
-```
-
-## Comparison
+### Comparison
 
 | Method                      | Parameters                        | Returns   | Description                                                                  |
 | --------------------------- | --------------------------------- | --------- | ---------------------------------------------------------------------------- |
 | `DeepEquals(first, second)` | `first: table`<br>`second: table` | `boolean` | Recursively determines whether two tables contain identical keys and values. |
 
-Example:
-
-```lua
-const equal = ValuePlus.Table.DeepEquals(
-	{ A = 1; B = { C = 2 } },
-	{ A = 1; B = { C = 2 } }
-);
-
-print(equal); -- true
-```
-
-## Searching
+### Searching
 
 | Method                 | Parameters                   | Returns   | Description                                               |
 | ---------------------- | ---------------------------- | --------- | --------------------------------------------------------- |
@@ -242,7 +167,7 @@ print(equal); -- true
 | `Find(tbl, value)`     | `tbl: table`<br>`value: any` | `any?`    | Returns the key associated with the first matching value. |
 | `IsEmpty(tbl)`         | `tbl: table`                 | `boolean` | Determines whether a table contains no entries.           |
 
-## Extraction
+### Extraction
 
 | Method           | Parameters   | Returns | Description                                                   |
 | ---------------- | ------------ | ------- | ------------------------------------------------------------- |
@@ -250,39 +175,11 @@ print(equal); -- true
 | `GetValues(tbl)` | `tbl: table` | `{any}` | Returns an array containing all values in a table.            |
 | `Reverse(tbl)`   | `tbl: {any}` | `{any}` | Returns a new array containing the elements in reverse order. |
 
-Example:
+### Debugging
 
-```lua
-const keys = ValuePlus.Table.GetKeys({
-	Name = "Mono";
-	Level = 10;
-});
-
-const values = ValuePlus.Table.GetValues({
-	Name = "Mono";
-	Level = 10;
-});
-```
-
-## Debugging
-
-`DeepPrint()` recursively traverses nested tables and prints each non-table value alongside its complete key path.
-
-```lua
-ValuePlus.Table.DeepPrint({
-	Player = {
-		Name = "Mono";
-		Level = 10;
-	};
-});
-```
-
-Output:
-
-```text
-Key: Player.Name | Value: Mono
-Key: Player.Level | Value: 10
-```
+| Method                    | Parameters                        | Returns | Description                                                        |
+| ------------------------- | --------------------------------- | ------- | ------------------------------------------------------------------ |
+| `DeepPrint(tbl, prefix?)` | `tbl: table`<br>`prefix?: string` | `nil`   | Recursively prints non-table values with their complete key paths. |
 
 # API Structure
 
