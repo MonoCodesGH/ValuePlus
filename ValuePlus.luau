@@ -1,7 +1,7 @@
 --[[
 	Title: ValuePlus
 	Authors: Mono (@Mono_Codes)
-	Description: A collection of utility functions for numbers, strings, and tables.
+	Github: https://github.com/MonoCodesGH/ValuePlus
 ]]
 
 -- Class
