@@ -38,9 +38,9 @@ function String.FormatKebabCase(value: string): (string)
 	return result;
 end
 
-function String.FormatSingular(value: string): (string)
-	if (value:sub(1, value:len() - 1):lower() == 's') then
-		return value:sub(1, value:len() - 1);
+function String.FormatSingular(value: string): string
+	if (value:sub(-1):lower() == "s") then
+		return value:sub(1, -2);
 	end
 	
 	return value;
