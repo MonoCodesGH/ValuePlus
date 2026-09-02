@@ -38,7 +38,7 @@ function String.FormatKebabCase(value: string): (string)
 	return result;
 end
 
-function String.FormatSingular(value: string): (string)
+function String.FormatPlural(value: string): (string)
 	if (value:sub(1, value:len() - 1):lower() == 's') then
 		return value:sub(1, value:len() - 1);
 	end
@@ -46,7 +46,7 @@ function String.FormatSingular(value: string): (string)
 	return value;
 end
 
-function String.FormatPlural(value: string, capitialize: boolean?): (string)
+function String.FormatSingular(value: string, capitialize: boolean?): (string)
 	return ("%s%s"):format(
 		value,
 		(capitialize == true) and "S" or "s"
