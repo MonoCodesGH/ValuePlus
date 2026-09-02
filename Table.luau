@@ -180,4 +180,16 @@ function Table.Reverse(tbl: { any }): { any }
 	return reversed;
 end
 
+function Table.CountKeys(tbl: { any }): (number)
+	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
+	
+	local total = 0;
+	
+	for key in (tbl) do
+		total += 1;
+	end
+	
+	return total;
+end
+
 return Table;
