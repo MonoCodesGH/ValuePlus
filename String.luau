@@ -38,6 +38,22 @@ function String.FormatKebabCase(value: string): (string)
 	return result;
 end
 
+function String.FormatSingular(value: string): (string)
+	if (value:sub(1, value:len() - 1):lower() == 's') then
+		return value:sub(1, value:len() - 1);
+	end
+	
+	return value;
+end
+
+function String.FormatPlural(value: string, capitialize: boolean?): (string)
+	return ("%s%s"):format(
+		value,
+		(capitialize == true) and "S" or "s"
+	);
+end
+
+
 function String.IsEmpty(value: string): (boolean)
 	return (value == "");
 end
