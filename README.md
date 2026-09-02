@@ -107,6 +107,8 @@ The `String` module provides formatting, validation, searching, and trimming uti
 | `FormatCamelCase(value)`   | `value: string` | `string` | Converts a string into camelCase.            |
 | `FormatSnakeCase(value)`   | `value: string` | `string` | Converts a string into snake_case.           |
 | `FormatKebabCase(value)`   | `value: string` | `string` | Converts a string into kebab-case.           |
+| `FormatSingular(value)`    | `value: string` | `string` | Converts a string into singular grammer.     |
+| `FormatPlural(value)`      | `value: string` | `string` | Converts a string into plural grammer.       |
 
 ### Validation
 
@@ -174,6 +176,12 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 | `GetKeys(tbl)`   | `tbl: table` | `{any}` | Returns an array containing all keys in a table.              |
 | `GetValues(tbl)` | `tbl: table` | `{any}` | Returns an array containing all values in a table.            |
 | `Reverse(tbl)`   | `tbl: {any}` | `{any}` | Returns a new array containing the elements in reverse order. |
+
+### Counting
+
+| Method           | Parameters   | Returns | Description                            |
+| ---------------- | ------------ | ------- | -------------------------------------- |
+| `CountKeys(tbl)`   | `tbl: table` | `number` | Returns the amount keys in a table. |
 
 ### Debugging
 
