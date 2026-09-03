@@ -53,6 +53,10 @@ function String.FormatPlural(value: string, capitialize: boolean?): (string)
 	);
 end
 
+function String.StringAsColor(value: string, color: Color3): (string)
+	return (`<font color="#{color:ToHex()}">{value}</font>`);
+end
+
 function String.IsEmpty(value: string): (boolean)
 	return (value == "");
 end
