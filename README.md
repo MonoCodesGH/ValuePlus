@@ -101,14 +101,15 @@ The `String` module provides formatting, validation, searching, and trimming uti
 
 ### Formatting
 
-| Method                     | Parameters                                 | Returns  | Description                                  |
-| -------------------------- | ------------------------------------------ | -------- | -------------------------------------------- |
-| `FormatCapitalized(value)` | `value: string`                            | `string` | Capitalizes the first character of a string. |
-| `FormatCamelCase(value)`   | `value: string`                            | `string` | Converts a string into camelCase.            |
-| `FormatSnakeCase(value)`   | `value: string`                            | `string` | Converts a string into snake_case.           |
-| `FormatKebabCase(value)`   | `value: string`                            | `string` | Converts a string into kebab-case.           |
-| `FormatSingular(value)`    | `value: string`                            | `string` | Converts a string into singular grammer.     |
-| `FormatPlural(value)`      | `value: string`<br>`capitialize: boolean?` | `string` | Converts a string into plural grammer.       |
+| Method                            | Parameters                                 | Returns  | Description                                  |
+| --------------------------------- | ------------------------------------------ | -------- | -------------------------------------------- |
+| `FormatCapitalized(value)`        | `value: string`                            | `string` | Capitalizes the first character of a string. |
+| `FormatCamelCase(value)`          | `value: string`                            | `string` | Converts a string into camelCase.            |
+| `FormatSnakeCase(value)`          | `value: string`                            | `string` | Converts a string into snake_case.           |
+| `FormatKebabCase(value)`          | `value: string`                            | `string` | Converts a string into kebab-case.           |
+| `FormatSingular(value)`           | `value: string`                            | `string` | Converts a string into singular grammer.     |
+| `FormatPlural(value, capitalize)` | `value: string`<br>`capitialize: boolean?` | `string` | Converts a string into plural grammer.       |
+| `StringAsColor(value, color)`     | `value: string`<br>`color: Color3`         | `string` | Converts a string into a color string.       |
 
 ### Validation
 
