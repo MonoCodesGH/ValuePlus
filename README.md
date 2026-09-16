@@ -204,7 +204,7 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 # API Structure
 
-ValuePlus exposes its utilities through three primary modules:
+ValuePlus exposes its utilities through four primary modules:
 
 ```text
 ValuePlus
