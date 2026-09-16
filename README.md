@@ -24,6 +24,7 @@ The library is organized into dedicated utility modules for each data type, prov
 * Table searching and containment checks
 * Table reversal
 * Deep table freezing
+* Player-based group methods
 
 # Usage
 
@@ -39,6 +40,7 @@ Individual utility modules can then be accessed through their respective propert
 const Number = ValuePlus.Number;
 const String = ValuePlus.String;
 const Table = ValuePlus.Table;
+const Player = ValuePlus.Player;
 ```
 
 For example:
@@ -49,7 +51,8 @@ print(Number.FormatCompact(1500000)); -- 1.5M
 print(Number.FormatRoman(2026)); -- MMXXVI
 print(String.FormatCamelCase("hello world")); -- helloWorld
 print(String.Trim("   Hello World   ")); -- Hello World
-print(Table.Contains("hello world", "lo wo)) -- true
+print(Table.Contains("hello world", "lo wo)); -- true
+print(Player.GetGroupRank(game.Players.LocalPlayer)); -- 255
 ```
 
 # API Reference
@@ -190,6 +193,15 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 | ------------------------- | --------------------------------- | ------- | ------------------------------------------------------------------ |
 | `DeepPrint(tbl, prefix?)` | `tbl: table`<br>`prefix?: string` | `nil`   | Recursively prints non-table values with their complete key paths. |
 
+## Player
+
+### Group-Based Methods
+
+| Method                  | Parameters       | Returns    | Description                                                                                    |
+| ----------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------------- |
+| `GetGroupRoles(player)` | `player: Player` | `{string}` | Returns an array containing all roles of a player as strings to corresponding `GROUP_ID` group |
+| `GetGroupRank(player)`  | `player: Player` | `number`   | Returns the highest rank of a player as a number to corresponding `GROUP_ID` group             |
+
 # API Structure
 
 ValuePlus exposes its utilities through three primary modules:
@@ -198,7 +210,8 @@ ValuePlus exposes its utilities through three primary modules:
 ValuePlus
 ├── Number
 ├── String
-└── Table
+├── Table
+└── Player
 ```
 
 Each module can be accessed directly from the main `ValuePlus` module:
@@ -207,6 +220,7 @@ Each module can be accessed directly from the main `ValuePlus` module:
 ValuePlus.Number
 ValuePlus.String
 ValuePlus.Table
+ValuePlus.Player
 ```
 
 This structure keeps utilities grouped by their associated data type while providing a single import point for the entire library.
