@@ -195,7 +195,7 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 ## Player
 
-### Group-Based Methods
+### Group-Based
 
 | Method                  | Parameters       | Returns    | Description                                                                                    |
 | ----------------------- | ---------------- | ---------- | ---------------------------------------------------------------------------------------------- |
