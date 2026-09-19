@@ -126,12 +126,18 @@ function Table.Contains(tbl: TableObj, value: any): (boolean)
 	return false;
 end
 
-function Table.Find(tbl: TableObj, value: any): (any?)
+function Table.RecursiveFindKey(tbl: TableObj, value: any): (any?)
 	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
 	
 	for key, entry in (tbl) do
 		if (entry == value) then
 			return key;
+		elseif (typeof(entry) == "table") then
+			local found = Table.RecursiveFindKey(entry, value);
+			
+			if (found) then
+				return found;
+			end
 		end
 	end
 	
@@ -190,6 +196,18 @@ function Table.CountKeys(tbl: { any }): (number)
 	end
 	
 	return total;
+end
+
+function Table.GetRandomKey(tbl: { any }): (any)
+	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
+	
+	const entries = {};
+	
+	for key in (tbl) do
+		table.insert(entries, key);
+	end
+	
+	return entries[math.random(1, #entries)];
 end
 
 return Table;
