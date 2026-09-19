@@ -174,7 +174,7 @@ function Table.GetValues(tbl: TableObj): ({ any })
 	return values;
 end
 
-function Table.Reverse(tbl: { any }): { any }
+function Table.Reverse(tbl: TableObj): ({ any })
 	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
 	
 	const reversed = {};
@@ -186,7 +186,7 @@ function Table.Reverse(tbl: { any }): { any }
 	return reversed;
 end
 
-function Table.CountKeys(tbl: { any }): (number)
+function Table.CountKeys(tbl: TableObj): (number)
 	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
 	
 	local total = 0;
@@ -198,13 +198,25 @@ function Table.CountKeys(tbl: { any }): (number)
 	return total;
 end
 
-function Table.GetRandomKey(tbl: { any }): (any)
+function Table.GetRandomKey(tbl: TableObj): (any)
 	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
 	
 	const entries = {};
 	
 	for key in (tbl) do
 		table.insert(entries, key);
+	end
+	
+	return entries[math.random(1, #entries)];
+end
+
+function Table.GetRandomValue(tbl: TableObj): (any)
+	assert(typeof(tbl) == "table", `Expected table, got {typeof(tbl)}`);
+	
+	const entries = {};
+	
+	for _, value in (tbl) do
+		table.insert(entries, value);
 	end
 	
 	return entries[math.random(1, #entries)];
