@@ -146,52 +146,54 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 ### Copying
 
-| Method             | Parameters   | Returns | Description                                        |
-| ------------------ | ------------ | ------- | -------------------------------------------------- |
-| `DeepCopy(tbl)`    | `tbl: table` | `table` | Recursively copies a table and its nested tables.  |
-| `ShallowCopy(tbl)` | `tbl: table` | `table` | Copies the top-level entries of a table.           |
-| `DeepFreeze(tbl)`  | `tbl: table` | `table` | Recursively freezes a table and all nested tables. |
+| Method             | Parameters      | Returns    | Description                                        |
+| ------------------ | --------------- | ---------- | -------------------------------------------------- |
+| `DeepCopy(tbl)`    | `tbl: TableObj` | `TableObj` | Recursively copies a table and its nested tables.  |
+| `ShallowCopy(tbl)` | `tbl: TableObj` | `TableObj` | Copies the top-level entries of a table.           |
+| `DeepFreeze(tbl)`  | `tbl: TableObj` | `TableObj` | Recursively freezes a table and all nested tables. |
 
 ### Merging
 
-| Method                        | Parameters                        | Returns | Description                                                                            |
-| ----------------------------- | --------------------------------- | ------- | -------------------------------------------------------------------------------------- |
-| `DeepMerge(first, second)`    | `first: table`<br>`second: table` | `table` | Recursively merges the second table into the first table.                              |
-| `ShallowMerge(first, second)` | `first: table`<br>`second: table` | `table` | Creates a copy of the first table and overwrites matching keys using the second table. |
+| Method                        | Parameters                              | Returns | Description                                                                            |
+| ----------------------------- | --------------------------------------- | ------- | -------------------------------------------------------------------------------------- |
+| `DeepMerge(first, second)`    | `first: TableObj`<br>`second: TableObj` | `table` | Recursively merges the second table into the first table.                              |
+| `ShallowMerge(first, second)` | `first: TableObj`<br>`second: TableObj` | `table` | Creates a copy of the first table and overwrites matching keys using the second table. |
 
 ### Comparison
 
-| Method                      | Parameters                        | Returns   | Description                                                                  |
-| --------------------------- | --------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| `DeepEquals(first, second)` | `first: table`<br>`second: table` | `boolean` | Recursively determines whether two tables contain identical keys and values. |
+| Method                      | Parameters                              | Returns   | Description                                                                  |
+| --------------------------- | --------------------------------------- | --------- | ---------------------------------------------------------------------------- |
+| `DeepEquals(first, second)` | `first: TableObj`<br>`second: TableObj` | `boolean` | Recursively determines whether two tables contain identical keys and values. |
 
 ### Searching
 
-| Method                 | Parameters                   | Returns   | Description                                               |
-| ---------------------- | ---------------------------- | --------- | --------------------------------------------------------- |
-| `Contains(tbl, value)` | `tbl: table`<br>`value: any` | `boolean` | Determines whether a table contains a specified value.    |
-| `Find(tbl, value)`     | `tbl: table`<br>`value: any` | `any?`    | Returns the key associated with the first matching value. |
-| `IsEmpty(tbl)`         | `tbl: table`                 | `boolean` | Determines whether a table contains no entries.           |
+| Method                         | Parameters                      | Returns   | Description                                               |
+| ------------------------------ | ------------------------------- | --------- | --------------------------------------------------------- |
+| `Contains(tbl, value)`         | `tbl: TableObj`<br>`value: any` | `boolean` | Determines whether a table contains a specified value.    |
+| `RecursiveFindKey(tbl, value)` | `tbl: TableObj`<br>`value: any` | `any?`    | Returns the key associated with the first matching value. |
+| `IsEmpty(tbl)`                 | `tbl: TableObj`                | `boolean` | Determines whether a table contains no entries.           |
 
 ### Extraction
 
-| Method           | Parameters   | Returns | Description                                                   |
-| ---------------- | ------------ | ------- | ------------------------------------------------------------- |
-| `GetKeys(tbl)`   | `tbl: table` | `{any}` | Returns an array containing all keys in a table.              |
-| `GetValues(tbl)` | `tbl: table` | `{any}` | Returns an array containing all values in a table.            |
-| `Reverse(tbl)`   | `tbl: {any}` | `{any}` | Returns a new array containing the elements in reverse order. |
+| Method                | Parameters      | Returns | Description                                                   |
+| --------------------- | --------------- | ------- | ------------------------------------------------------------- |
+| `GetKeys(tbl)`        | `tbl: TableObj` | `{any}` | Returns an array containing all keys in a table.              |
+| `GetValues(tbl)`      | `tbl: TableObj` | `{any}` | Returns an array containing all values in a table.            |
+| `Reverse(tbl)`        | `tbl: TableObj` | `{any}` | Returns a new array containing the elements in reverse order. |
+| `GetRandomKey(tbl)`   | `tbl: TableObj` | `any`   | Returns a random key from a table.                            |
+| `GetRandomValue(tbl)` | `tbl: TableObj` | `any`   | Returns a random value from a table.                          |
 
 ### Counting
 
-| Method           | Parameters   | Returns | Description                            |
-| ---------------- | ------------ | ------- | -------------------------------------- |
-| `CountKeys(tbl)`   | `tbl: table` | `number` | Returns the amount keys in a table. |
+| Method           | Parameters        | Returns  | Description                            |
+| ---------------- | ----------------- | -------- | -------------------------------------- |
+| `CountKeys(tbl)` | `tbl: TableObj`   | `number` | Returns the amount keys in a table.    |
 
 ### Debugging
 
-| Method                    | Parameters                        | Returns | Description                                                        |
-| ------------------------- | --------------------------------- | ------- | ------------------------------------------------------------------ |
-| `DeepPrint(tbl, prefix?)` | `tbl: table`<br>`prefix?: string` | `nil`   | Recursively prints non-table values with their complete key paths. |
+| Method                    | Parameters                           | Returns | Description                                                        |
+| ------------------------- | ------------------------------------ | ------- | ------------------------------------------------------------------ |
+| `DeepPrint(tbl, prefix?)` | `tbl: TableObj`<br>`prefix?: string` | `nil`   | Recursively prints non-table values with their complete key paths. |
 
 ## Player
 
