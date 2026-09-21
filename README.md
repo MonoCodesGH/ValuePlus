@@ -197,6 +197,11 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 ## Player
 
+### Comparison
+| Method                    | Parameters       | Description                                                                                            |
+| ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
+| `IsTestingPlayer(player)` | `player: Player` | Returns if the passed player is a testing player determined by if `UserId` is less than or equal to 0. |
+
 ### Group-Based
 
 | Method                  | Parameters       | Returns    | Description                                                                                    |
