@@ -197,7 +197,7 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 ## Player
 
-### Comparison
+### Validation
 | Method                    | Parameters       | Description                                                                                            |
 | ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
 | `IsTestingPlayer(player)` | `player: Player` | Returns if the passed player is a testing player determined by if `UserId` is less than or equal to 0. |
