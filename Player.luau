@@ -12,7 +12,7 @@ const Player = {};
 function Player.GetGroupRoles(player: Player): ({ string })
 	assert(typeof(GROUP_ID) == "number" and GROUP_ID > 0, "Invalid group ID");
 	
-	if (player.UserId <= 0) then
+	if (Player.IsTestingPlayer(player)) then
 		return {};
 	end
 	
@@ -40,7 +40,7 @@ end
 function Player.GetGroupRank(player: Player): (number)
 	assert(typeof(GROUP_ID) == "number" and GROUP_ID > 0, "Invalid group ID");
 	
-	if (player.UserId <= 0) then
+	if (Player.IsTestingPlayer(player)) then
 		return 0;
 	end
 	
@@ -64,6 +64,10 @@ function Player.GetGroupRank(player: Player): (number)
 	end
 	
 	return highestRank;
+end
+
+function Player.IsTestingPlayer(player: Player): (boolean)
+	return (player.UserId <= 0);
 end
 
 return Player;
