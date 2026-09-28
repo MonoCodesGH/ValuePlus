@@ -1,10 +1,10 @@
 # ValuePlus
 
-**ValuePlus** is a lightweight Luau utility library that provides reusable functions for working with numbers, strings, and tables.
+**ValuePlus** is a lightweight Luau utility library that provides reusable functions for working with numbers, strings, tables, players, and colors.
 
 The library is organized into dedicated utility modules for each data type, providing common formatting, validation, manipulation, comparison, and conversion operations without requiring repeated implementation across a project.
 
-`ValuePlus` acts as the primary entry point, exposing the `Number`, `String`, `Table`, and `Player` utility modules through a single package.
+`ValuePlus` acts as the primary entry point, exposing the `Number`, `String`, `Table`, `Player`, and `Color` utility modules through a single package.
 
 # Features
 
