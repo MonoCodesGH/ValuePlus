@@ -25,6 +25,12 @@ The library is organized into dedicated utility modules for each data type, prov
 * Table reversal
 * Deep table freezing
 * Player-based group methods
+* Color mixing and interpolation
+* Color lightening, darkening, and inversion
+* Color brightness and contrast utilities
+* Color grayscale conversion
+* HSV color manipulation
+* Color palette generation
 
 # Usage
 
@@ -41,6 +47,7 @@ const Number = ValuePlus.Number;
 const String = ValuePlus.String;
 const Table = ValuePlus.Table;
 const Player = ValuePlus.Player;
+const Color = ValuePlus.Color;
 ```
 
 For example:
@@ -53,6 +60,7 @@ print(String.FormatCamelCase("hello world")); -- helloWorld
 print(String.Trim("   Hello World   ")); -- Hello World
 print(Table.Contains("hello world", "lo wo)); -- true
 print(Player.GetGroupRank(game.Players.LocalPlayer)); -- 255
+print(Color.Invert(Color3.fromRGB(255, 0, 0))); -- Color3.new(0, 1, 1)
 ```
 
 # API Reference
@@ -209,6 +217,64 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 | `GetGroupRoles(player)` | `player: Player` | `{string}` | Returns an array containing all roles of a player as strings to corresponding `GROUP_ID` group |
 | `GetGroupRank(player)`  | `player: Player` | `number`   | Returns the highest rank of a player as a number to corresponding `GROUP_ID` group             |
 
+## Color
+
+The `Color` module provides utilities for creating, manipulating, analyzing, and generating `Color3` values.
+
+### Constants
+
+| Constant | Value | Description |
+| -------- | ----- | ----------- |
+| `RED` | `Color3` | Pure red. |
+| `ORANGE` | `Color3` | Orange. |
+| `YELLOW` | `Color3` | Pure yellow. |
+| `GREEN` | `Color3` | Pure green. |
+| `BLUE` | `Color3` | Pure blue. |
+| `PURPLE` | `Color3` | Purple. |
+| `PINK` | `Color3` | Pure pink. |
+| `WHITE` | `Color3` | Pure white. |
+| `BLACK` | `Color3` | Pure black. |
+
+### Mixing
+
+| Method | Parameters | Returns | Description |
+| ------ | ---------- | ------- | ----------- |
+| `MixColors(colors)` | `colors: {Color3}` | `Color3` | Returns the average color of an array of colors. |
+| `Lerp(color1, color2, alpha)` | `color1: Color3`<br>`color2: Color3`<br>`alpha: number` | `Color3` | Linearly interpolates between two colors. |
+
+### Manipulation
+
+| Method | Parameters | Returns | Description |
+| ------ | ---------- | ------- | ----------- |
+| `Lighten(color, amount)` | `color: Color3`<br>`amount: number` | `Color3` | Lightens a color toward white. |
+| `Darken(color, amount)` | `color: Color3`<br>`amount: number` | `Color3` | Darkens a color toward black. |
+| `Invert(color)` | `color: Color3` | `Color3` | Returns the inverted version of a color. |
+| `Grayscale(color)` | `color: Color3` | `Color3` | Converts a color to grayscale. |
+
+### Analysis
+
+| Method | Parameters | Returns | Description |
+| ------ | ---------- | ------- | ----------- |
+| `GetBrightness(color)` | `color: Color3` | `number` | Calculates the perceived brightness of a color. |
+| `IsDark(color)` | `color: Color3` | `boolean` | Determines whether a color is considered dark. |
+| `IsLight(color)` | `color: Color3` | `boolean` | Determines whether a color is considered light. |
+| `GetContrastColor(color)` | `color: Color3` | `Color3` | Returns either black or white based on the color's brightness for improved contrast. |
+
+### HSV
+
+| Method | Parameters | Returns | Description |
+| ------ | ---------- | ------- | ----------- |
+| `SetSaturation(color, saturation)` | `color: Color3`<br>`saturation: number` | `Color3` | Sets the saturation of a color. |
+| `SetBrightness(color, brightness)` | `color: Color3`<br>`brightness: number` | `Color3` | Sets the brightness of a color. |
+| `RotateHue(color, degrees)` | `color: Color3`<br>`degrees: number` | `Color3` | Rotates a color's hue by the specified number of degrees. |
+
+### Palettes
+
+| Method | Parameters | Returns | Description |
+| ------ | ---------- | ------- | ----------- |
+| `Complementary(color)` | `color: Color3` | `Color3` | Returns the complementary color by rotating the hue 180 degrees. |
+| `Analogous(color, degrees)` | `color: Color3`<br>`degrees: number` | `{Color3}` | Returns a three-color analogous palette around the specified color. |
+
 # API Structure
 
 ValuePlus exposes its utilities through four primary modules:
@@ -218,7 +284,8 @@ ValuePlus
 ├── Number
 ├── String
 ├── Table
-└── Player
+├── Player
+└── Color
 ```
 
 Each module can be accessed directly from the main `ValuePlus` module:
@@ -228,6 +295,7 @@ ValuePlus.Number
 ValuePlus.String
 ValuePlus.Table
 ValuePlus.Player
+ValuePlus.Color
 ```
 
 This structure keeps utilities grouped by their associated data type while providing a single import point for the entire library.
