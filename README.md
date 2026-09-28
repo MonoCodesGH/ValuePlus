@@ -27,10 +27,6 @@ The library is organized into dedicated utility modules for each data type, prov
 * Player-based group methods
 * Color mixing and interpolation
 * Color lightening, darkening, and inversion
-* Color brightness and contrast utilities
-* Color grayscale conversion
-* HSV color manipulation
-* Color palette generation
 
 # Usage
 
@@ -250,30 +246,6 @@ The `Color` module provides utilities for creating, manipulating, analyzing, and
 | `Darken(color, amount)` | `color: Color3`<br>`amount: number` | `Color3` | Darkens a color toward black. |
 | `Invert(color)` | `color: Color3` | `Color3` | Returns the inverted version of a color. |
 | `Grayscale(color)` | `color: Color3` | `Color3` | Converts a color to grayscale. |
-
-### Analysis
-
-| Method | Parameters | Returns | Description |
-| ------ | ---------- | ------- | ----------- |
-| `GetBrightness(color)` | `color: Color3` | `number` | Calculates the perceived brightness of a color. |
-| `IsDark(color)` | `color: Color3` | `boolean` | Determines whether a color is considered dark. |
-| `IsLight(color)` | `color: Color3` | `boolean` | Determines whether a color is considered light. |
-| `GetContrastColor(color)` | `color: Color3` | `Color3` | Returns either black or white based on the color's brightness for improved contrast. |
-
-### HSV
-
-| Method | Parameters | Returns | Description |
-| ------ | ---------- | ------- | ----------- |
-| `SetSaturation(color, saturation)` | `color: Color3`<br>`saturation: number` | `Color3` | Sets the saturation of a color. |
-| `SetBrightness(color, brightness)` | `color: Color3`<br>`brightness: number` | `Color3` | Sets the brightness of a color. |
-| `RotateHue(color, degrees)` | `color: Color3`<br>`degrees: number` | `Color3` | Rotates a color's hue by the specified number of degrees. |
-
-### Palettes
-
-| Method | Parameters | Returns | Description |
-| ------ | ---------- | ------- | ----------- |
-| `Complementary(color)` | `color: Color3` | `Color3` | Returns the complementary color by rotating the hue 180 degrees. |
-| `Analogous(color, degrees)` | `color: Color3`<br>`degrees: number` | `{Color3}` | Returns a three-color analogous palette around the specified color. |
 
 # API Structure
 
