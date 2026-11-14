@@ -1,6 +1,7 @@
 --!strict
 -- Services
 const GroupService = game:GetService("GroupService");
+const RunService = game:GetService("RunService");
 const Players = game:GetService("Players");
 
 -- Constants
@@ -8,6 +9,36 @@ const GROUP_ID = 0;
 
 -- Class
 const Player = {};
+
+function Player.EnableControls(): ()
+	assert(RunService:IsClient(), "EnableControls can only be ran by Client");
+	
+	const LocalPlayer = Players.LocalPlayer;
+	if (LocalPlayer == nil) then
+		return;
+	end
+	
+	const PlayerScripts = LocalPlayer:WaitForChild("PlayerScripts");
+	const PlayerModule = require(PlayerScripts:WaitForChild("PlayerModule"));
+	const controls = PlayerModule:GetControls();
+	
+	controls:Enable();
+end
+
+function Player.DisableControls(): ()
+	assert(RunService:IsClient(), "DisableControls can only be ran by Client");
+	
+	const LocalPlayer = Players.LocalPlayer;
+	if (LocalPlayer == nil) then
+		return;
+	end
+	
+	const PlayerScripts = LocalPlayer:WaitForChild("PlayerScripts");
+	const PlayerModule = require(PlayerScripts:WaitForChild("PlayerModule"));
+	const controls = PlayerModule:GetControls();
+	
+	controls:Disable();
+end
 
 function Player.GetGroupRoles(player: Player): ({ string })
 	assert(typeof(GROUP_ID) == "number" and GROUP_ID > 0, "Invalid group ID");
