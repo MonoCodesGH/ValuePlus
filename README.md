@@ -201,6 +201,12 @@ The `Table` module provides utilities for copying, merging, comparing, searching
 
 ## Player
 
+### Controls
+| Method            | Returns | Description                                 |
+| ----------------- | ------- | ------------------------------------------- |
+| `EnableControls`  | `nil`   | Enables movement controls of `LocalPlayer`  |
+| `DisableControls` | `nil`   | Disables movement controls of `LocalPlayer` |
+
 ### Validation
 | Method                    | Parameters       | Description                                                                                            |
 | ------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------ |
